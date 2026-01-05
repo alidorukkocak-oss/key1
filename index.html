@@ -2,43 +2,29 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Axiore Hub | Key Sistemi</title>
+    <title>Axiore Hub | Doğrulama</title>
     <style>
-        body { background: #0b0b0b; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; padding-top: 100px; }
-        .container { background: #151515; padding: 30px; border-radius: 15px; display: inline-block; border: 1px solid #333; }
-        .btn { padding: 15px 40px; background: #5865F2; border: none; color: white; cursor: pointer; border-radius: 8px; font-size: 18px; font-weight: bold; transition: 0.3s; }
-        .btn:disabled { background: #222; color: #555; cursor: not-allowed; }
-        .ad-box { width: 300px; height: 250px; background: #222; margin: 20px auto; border: 1px dashed #555; line-height: 250px; }
+        body { background: #0b0b0b; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .card { background: #151515; padding: 30px; border-radius: 15px; border: 1px solid #333; text-align: center; width: 350px; }
+        input { width: 90%; padding: 12px; margin: 15px 0; border-radius: 5px; border: 1px solid #444; background: #222; color: white; }
+        .btn { padding: 12px; background: #5865F2; border: none; color: white; cursor: pointer; border-radius: 5px; width: 100%; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Axiore Hub</h1>
-        <p>Key almak için reklamı izleyin ve bekleyin.</p>
-        
-        <div class="ad-box">REKLAM ALANI</div>
-
-        <button id="countBtn" class="btn" disabled>Bekleyin (20)</button>
+    <div class="card">
+        <h2>🚀 Axiore Hub</h2>
+        <p>Discord kullanıcı adınızı yazın:</p>
+        <input type="text" id="dcName" placeholder="Örn: axiore_01">
+        <button onclick="goToDiscord()" class="btn">DISCORD'A GİT VE DOĞRULA</button>
     </div>
 
     <script>
-        let timeLeft = 20;
-        const btn = document.getElementById('countBtn');
-
-        let timer = setInterval(() => {
-            timeLeft--;
-            btn.innerText = `Bekleyin (${timeLeft})`;
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-                btn.innerText = "KEYİ ALMAK İÇİN DISCORD'A DÖN";
-                btn.disabled = false;
-            }
-        }, 1000);
-
-        btn.onclick = () => {
-            alert("Reklam onaylandı! Şimdi Discord'da /dogrula komutunu kullanın.");
-            window.location.href = "discord://"; // Kullanıcıyı Discord uygulamasına atar
-        };
+        function goToDiscord() {
+            const name = document.getElementById('dcName').value;
+            if(!name) return alert("Lütfen bir isim girin!");
+            alert("Şimdi sunucuda /dogrula komutunu kullanın!");
+            window.location.href = "https://discord.gg/GdSmxSsRPw"; 
+        }
     </script>
 </body>
 </html>
